@@ -31,6 +31,10 @@ if mode == "Upload Image":
 
 # Drawing Option
 elif mode == "Draw Digit":
+    # Create a unique key for the canvas based on a counter
+    if 'canvas_key' not in st.session_state:
+        st.session_state.canvas_key = 0
+
     canvas_result = st_canvas(
         fill_color="white",  # Background
         stroke_width=10,
@@ -39,8 +43,13 @@ elif mode == "Draw Digit":
         height=280,
         width=280,
         drawing_mode="freedraw",
-        key="canvas",
+        key=f"canvas_{st.session_state.canvas_key}",
     )
+
+    # Add clear canvas button
+    if st.button("Clear Canvas"):
+        st.session_state.canvas_key += 1
+        st.experimental_rerun()
 
     if canvas_result.image_data is not None:
         image = Image.fromarray(np.uint8(canvas_result.image_data)).convert("RGB")
