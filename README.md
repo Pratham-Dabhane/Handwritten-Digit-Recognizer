@@ -27,6 +27,10 @@ This project solves the problem using deep learning and provides a smooth user e
 
 ---
 
+## 📌 Try the Live Demo Here
+[🔗Handwritten Digit Recognizer](https://pra-code-handwritten-digit-recognizer.streamlit.app/)
+
+
 ## 📊 Model Architecture
 
 Trained on the MNIST dataset, the CNN architecture is:
@@ -41,7 +45,7 @@ Trained on the MNIST dataset, the CNN architecture is:
 - `Dense(128, activation='relu')`
 - `Dense(10, activation='softmax')`
 
-Trained for 5 epochs with Adam optimizer and categorical cross-entropy loss.
+Trained for 13 epochs with Adam optimizer and categorical cross-entropy loss.
 
 ---
 
