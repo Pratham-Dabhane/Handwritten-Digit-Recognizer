@@ -1,18 +1,20 @@
 pipeline {
     agent any
 
-    environment {
-        PYTHONPATH = '.'
-    }
-
     stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Pratham-Dabhane/Handwritten-Digit-Recognizer'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 bat '''
-                    python -m venv venv
-                    . venv/bin/activate
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
+                python -m venv venv
+                venv\\Scripts\\activate
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
                 '''
             }
         }
@@ -20,22 +22,20 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                bat '''
-                    . venv/bin/activate
-                    python test_app.py
-                '''
+                // Add test logic here (if any)
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building application...'
+                echo 'Build stage (optional for Streamlit app)...'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application...'
+                echo 'Deploying app...'
+                // Deploy logic here (Streamlit sharing / containerize / etc.)
             }
         }
     }
