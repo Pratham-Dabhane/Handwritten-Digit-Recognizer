@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh '''
+                bat '''
                     python -m venv venv
                     . venv/bin/activate
                     pip install --upgrade pip
@@ -20,7 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh '''
+                bat '''
                     . venv/bin/activate
                     python test_app.py
                 '''
