@@ -58,7 +58,7 @@ Trained for 13 epochs with Adam optimizer and categorical cross-entropy loss.
 ### 📥 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/digit-recognizer-app.git
+git clone https://github.com/Pratham-Dabhane/digit-recognizer-app.git
 cd digit-recognizer-app
 ```
 ### 📦 Install dependencies
